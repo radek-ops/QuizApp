@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Radek Gnych ">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <link rel="icon" type="png" href="./img/logo_small.png" />
+    <link rel="shortcut icon" href="./img/logo_small.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./script.js"></script>
+    <title>Quizapp</title>
+
+
+    <!-- Bootstrap file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="init()">
+    <nav>
+        <h1 class="display-1">Quizapp</h1>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card quiz-card">
+                    <img src="./img/quiz-2432440_1280.png" class="card-img-top" alt="Quizapp-Karten-Bild">
+
+                    <div class="question">
+                        <h2 id="endScreen" style="display: none;">Quiz beendet !</h2>
+                    </div>
+                    <div class="question">
+                        <h6 id="sum" style="display: none;">Du hast<b id="questionResult"> xxx </b>Fragen von 9 Richtig
+                            beantwortet !
+                        </h6>
+                    </div>
+
+                    <div class="question">
+                        <button id="playAgin" style="display: none;" onclick="" type="button" class="btn btn-info">Noch
+                            mal spielen !</button>
+                    </div>
+
+                    <div class="qiuz-body" id="mainScreen">
+                        <div class="question">
+                            <h5 id="question">Frage</h5>
+                        </div>
+
+                        <div class="card qiuz-card-answer" onclick="selectAnswer('answer_1')">
+                            <div id="answer_1" class="card-body">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card qiuz-card-answer" onclick="selectAnswer('answer_2')">
+                            <div id="answer_2" class="card-body">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card qiuz-card-answer" onclick="selectAnswer('answer_3')">
+                            <div id="answer_3" class="card-body">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card qiuz-card-answer" onclick="selectAnswer('answer_4')">
+                            <div id="answer_4" class="card-body">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class=" question-and-button">
+                            <div>Frage: <b id="questionNumber">0</b> von <b id="allQuestions">0</b></div><button
+                                id="next-button" type="button" onclick="newCard()" class="btn btn-primary">Nächste
+                                Frage</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+body
+{
+    background-color: rgb(235, 99, 8);
+}
+
+
+.quiz-card
+{
+    max-width: 450px;
+
+}
+
+
+nav
+{
+    justify-content: space-between;
+    background-color: rgb(253, 75, 5, 1.9);
+}
+
+
+h1
+{
+    margin-left: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 52px !important;
+    color: white;
+}
+
+@keyframes pulsadern
+{
+    0%
+    {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50%
+    {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+
+    100%
+    {
+        opacity: 1;
+        transform: scale(1);
+        color: rgb(253, 75, 5);
+    }
+}
+
+h2
+{
+    animation: pulsadern 2s infinite;
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+
+.card
+{
+    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+
+.card-img-top
+{
+    max-height: 300px;
+}
+
+
+.card-body
+{
+    padding: 8px 8px 8px 8px;
+}
+
+
+.question
+{
+    padding: 8px;
+}
+
+
+.question-and-button
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px 0 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+
+.btn
+{
+    font-size: 16px;
+}
+
+
+.qiuz-card-answer:hover
+{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.bg-success,
+.bg-danger
+{
+    color: white;
+}
+
+
+.btn-info
+{
+    display: flex;
+    margin: auto;
+}
+
+
+.btn-info.hover
+{
+    cursor: pointer;
+}
+
+
+h6
+{
+    text-align: center;
+}
