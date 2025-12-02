@@ -38,19 +38,26 @@
                         <h2 id="endScreen" style="display: none;">Quiz beendet !</h2>
                     </div>
                     <div class="question">
-                        <h6 id="sum" style="display: none;">Du hast<b id="questionResult"> xxx </b>Fragen von 9 Richtig
+                        <h6 id="sum" style="display: none;">Du hast <b id="questionResult"> xxx
+                            </b> Fragen von Richtig <b id="questionsLength">xxx</b>
                             beantwortet !
                         </h6>
                     </div>
 
                     <div class="question">
-                        <button id="playAgin" style="display: none;" onclick="" type="button" class="btn btn-info">Noch
+                        <button id="playAgin" style="display: none;" onclick="startNewGame()" type="button"
+                            class="btn btn-primary info">Noch
                             mal spielen !</button>
                     </div>
 
                     <div class="qiuz-body" id="mainScreen">
                         <div class="question">
                             <h5 id="question">Frage</h5>
+                        </div>
+
+                        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="11"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div id="progressBar" class="progress-bar" style="width: 12%">12%</div>
                         </div>
 
                         <div class="card qiuz-card-answer" onclick="selectAnswer('answer_1')">
@@ -74,7 +81,7 @@
                             </div>
                         </div>
                         <div class=" question-and-button">
-                            <div>Frage: <b id="questionNumber">0</b> von <b id="allQuestions">0</b></div><button
+                            <div>Fragen: <b id="questionNumber">0</b> von <b id="allQuestions">0</b></div><button
                                 id="next-button" type="button" onclick="newCard()" class="btn btn-primary">Nächste
                                 Frage</button>
                         </div>

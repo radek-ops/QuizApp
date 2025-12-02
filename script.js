@@ -79,32 +79,45 @@ let questions = [{
 
 let currentQuestions = 0;
 let numberOfQuestions = document.getElementById('questionNumber');
+let questionsResult = 0;
+let progressBar = 12;
+let selectSound = new Audio('./sounds/phone-keyboars-359370.mp3');
+let endSound = new Audio('./sounds/spin-complete-295086.mp3');
 
 
 function init() {
-    let allQuestions = document.getElementById('allQuestions');
-    allQuestions.innerHTML = '';
-    allQuestions.innerHTML = questions.length;
+    let allQuestions = document.getElementById('allQuestions').innerHTML = questions.length;
     showQuestions();
 }
 
 
 function showQuestions() {
-
     if (currentQuestions >= questions.length) {
-
-        document.getElementById('mainScreen').style = 'display:none';
-        document.getElementById('endScreen').style = '';
-        document.getElementById('sum').style = '';
-        document.getElementById('playAgin').style = '';
-
+        questionsElements();
     } else {
-
-        let question = questions[currentQuestions]; // = let question  = questions[0];
-        let nextQuestion = document.getElementById('question');
-        nextQuestion.innerHTML = question.question;  //  oder question.['question']
-        answer();
+        elseShowQuestions()
     }
+}
+
+
+function elseShowQuestions() {
+    let question = questions[currentQuestions]; // = let question  = questions[0];
+    let nextQuestion = document.getElementById('question');
+    nextQuestion.innerHTML = question.question;  //  oder question.['question']
+    answer();
+}
+
+
+function questionsElements() {
+    document.getElementById('mainScreen').style = 'display:none';
+    document.getElementById('endScreen').style = '';
+    document.getElementById('sum').style = '';
+    document.getElementById('playAgin').style = '';
+    document.getElementById('questionsLength').innerHTML = questions.length;
+    document.getElementById('questionResult').innerHTML = questionsResult;
+    endSound.play();
+    questionsResult = 0;
+    progressBar = 12;
 }
 
 
@@ -128,12 +141,11 @@ function selectAnswer(selection) {
     let question = questions[currentQuestions]; // = let question  = questions[0];
     let correctAnswer = question.correct_answer;
 
-
     if (selection == correctAnswer) {
+        questionsResult++;
         let newClass = document.getElementById(selection);
         newClass.parentNode.classList.add('bg-success');
         document.getElementById('next-button').disabled = false;
-
 
     } else {
         let newClass = document.getElementById(selection);
@@ -146,10 +158,13 @@ function selectAnswer(selection) {
 
 
 function newCard() {
-    currentQuestions++; // Veriable wird  von null um eins erhöht
+    currentQuestions++; // Variable wird  von null um eins erhöht
+    progressBar = progressBar + 11;
     showQuestions();
     document.getElementById('next-button').disabled = true;
     restAllAnswer();
+    document.getElementById('progressBar').style = `width:${progressBar}%`;
+    document.getElementById('progressBar').innerHTML = progressBar + '%';
 }
 
 
@@ -163,6 +178,17 @@ function restAllAnswer() {
 
 function numberOfQuestion() {
     numberOfQuestions.innerHTML++; // erhöhe den wert um  eins von id="questionNumber
+}
+
+
+function startNewGame() {
+    currentQuestions = 0;
+    numberOfQuestions = document.getElementById('questionNumber');
+    document.getElementById('mainScreen').style = '';
+    document.getElementById('endScreen').style = 'display:none';
+    document.getElementById('sum').style = 'display:none';
+    document.getElementById('playAgin').style = 'display:none';
+    init();
 
 }
 
